@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        Quantidade de frango
+    <input type="text" id="input_qtdFrango"><br><br>
+        Kilo medio do frango
+    <input type="text" id="input_kgMedioFrango"><br><br>
+        Preço medio por frango
+    <input type="text" id="input_precoMedioFrango"><br><br>
+        Despesas media por frango
+    <input type="text" id="input_despesaMedioFrango"><br><br>
+        Quantidade esperada de frango mortos
+    <input type="text" name="" id="input_mortalidadeFrango"><br><br>
+
+    <button onclick="calcularDepesas()">Calcular Despesas</button>
+    <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+function calcularDepesas(){
+    div_resultado.innerHTML = ``;
+
+    var qtdFrango = Number(input_qtdFrango.value);
+    var pesoMedioFrango = Number(input_kgMedioFrango.value);
+    var precoMedioFrango = Number(input_precoMedioFrango.value);
+    var despesaMedioFrango = Number(input_despesaMedioFrango.value);
+    var taxaMortalidade = Number(input_mortalidadeFrango.value);
+
+    var kiloTotal = qtdFrango*pesoMedioFrango;
+    var precoBruto = kiloTotal*precoMedioFrango;
+    var despesaTotal = despesaMedioFrango*kiloTotal;
+    var lucro = precoBruto-despesaTotal;
+
+    var kiloMortalidade = taxaMortalidade*pesoMedioFrango;
+    var precoBrutoMortalidade = kiloMortalidade*precoMedioFrango;
+    var despesaTotalMortalidade = despesaMedioFrango*taxaMortalidade;
+    var perdaTotal = despesaTotalMortalidade+precoBrutoMortalidade;
+
+    div_resultado.innerHTML = 
+    `
+        A quantidade de frango é ${qtdFrango}<br>
+        O peso total de todos os frangos é ${kiloTotal}<br>
+        O preço bruto total é de ${precoBruto}<br>
+        A despesa de todos os frangos é ${despesaTotal}<br>
+        Seu lucro é ${lucro}
+            <br><br><br>
+        A quantidade de frango é ${taxaMortalidade}<br>
+        O peso total de todos os frangos mortos é ${kiloMortalidade}<br>
+        O preço bruto total perdido é ${precoBrutoMortalidade}<br>
+        A despesa de todos os frangos  é ${despesaTotalMortalidade}<br>
+        Sua perda total é ${perdaTotal}
+
+
+
+    `
+
+
+}
+</script>
