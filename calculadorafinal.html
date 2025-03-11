@@ -1,28 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-        Quantidade de frango
-    <input type="text" id="input_qtdFrango"><br><br>
-        Kilo medio do frango
-    <input type="text" id="input_kgMedioFrango"><br><br>
-        Preço medio por frango
-    <input type="text" id="input_precoMedioFrango"><br><br>
-        Despesas media por frango
-    <input type="text" id="input_despesaMedioFrango"><br><br>
-        Quantidade esperada de frango mortos
-    <input type="text" name="" id="input_mortalidadeFrango"><br><br>
+  </head>
+  <body>
+    <b>Quantidade de cabeças de frango:</b> <br />
+    <input type="text" id="input_qtdFrango" placeholder="Exemplo 10000..." /><br /><br />
+
+    <b>Peso médio dos frangos:</b> <br />
+    <input type="text" id="input_kgMedioFrango" placeholder="Exemplo 4.5Kg" /><br /><br />
+
+    <b> Preço de venda de cada frango:</b><br />
+    <input type="text" id="input_precoMedioFrango" placeholder="Exemplo R$8.00" /><br /><br />
+
+    <b>Custos de produção por kilo dos frangos:</b><br />
+    <input type="text" id="input_despesaMedioFrango" placeholder="Exemplo R$5.00" /><br /><br />
+
+    <b>:</b><br />
+    <input type="text" name="" id="input_mortalidadeFrango" placeholder="Exemplo 10%" /><br /><br />
 
     <button onclick="calcularDepesas()">Calcular Despesas</button>
     <div id="div_resultado"></div>
-</body>
+  </body>
 </html>
 <script>
-function calcularDepesas(){
+  function calcularDepesas() {
     div_resultado.innerHTML = ``;
 
     var qtdFrango = Number(input_qtdFrango.value);
@@ -31,34 +35,29 @@ function calcularDepesas(){
     var despesaMedioFrango = Number(input_despesaMedioFrango.value);
     var taxaMortalidade = Number(input_mortalidadeFrango.value);
 
-    var kiloTotal = qtdFrango*pesoMedioFrango;
-    var precoBruto = kiloTotal*precoMedioFrango;
-    var despesaTotal = despesaMedioFrango*kiloTotal;
-    var lucro = precoBruto-despesaTotal;
+    var kiloTotal = qtdFrango * pesoMedioFrango;
+    var precoBruto = kiloTotal * precoMedioFrango;
+    var despesaTotal = despesaMedioFrango * kiloTotal;
+    var lucro = precoBruto - despesaTotal;
 
-    var kiloMortalidade = taxaMortalidade*pesoMedioFrango;
-    var precoBrutoMortalidade = kiloMortalidade*precoMedioFrango;
-    var despesaTotalMortalidade = despesaMedioFrango*taxaMortalidade;
-    var perdaTotal = despesaTotalMortalidade+precoBrutoMortalidade;
+    var kiloMortalidade = taxaMortalidade * pesoMedioFrango;
+    var precoBrutoMortalidade = kiloMortalidade * precoMedioFrango;
+    var despesaTotalMortalidade = despesaMedioFrango * taxaMortalidade;
+    var perdaTotal = despesaTotalMortalidade + precoBrutoMortalidade;
 
-    div_resultado.innerHTML = 
-    `
-        A quantidade de frango é ${qtdFrango}<br>
-        O peso total de todos os frangos é ${kiloTotal}<br>
-        O preço bruto total é de ${precoBruto}<br>
-        A despesa de todos os frangos é ${despesaTotal}<br>
-        Seu lucro é ${lucro}
+    div_resultado.innerHTML = `
+       
+        A sua proução conta com ${qtdFrango} cabeças de frango.<br>
+        O peso total de todos os frangos é de:${kiloTotal}Kg.<br>
+        O faturamento bruto é de: R$${precoBruto}.<br>
+        Os custos totais de produção somam: R$${despesaTotal}.<br>
+        Seu lucro líquido obtido é de: R$${lucro}.
             <br><br><br>
-        A quantidade de frango é ${taxaMortalidade}<br>
-        O peso total de todos os frangos mortos é ${kiloMortalidade}<br>
-        O preço bruto total perdido é ${precoBrutoMortalidade}<br>
-        A despesa de todos os frangos  é ${despesaTotalMortalidade}<br>
-        Sua perda total é ${perdaTotal}
-
-
-
-    `
-
-
-}
+        Com a taxe de mortalidade de ${taxaMortalidade}%.<br>
+        São perdidos ${kiloMortalidade}Kg.<br>
+        O que reduz os lucros em:R$${precoBrutoMortalidade}.<br>
+        O custos de produção desses frangos foram: R$${despesaTotalMortalidade}.<br>
+        A perda total registrada é: R$${perdaTotal}.
+    `;
+  }
 </script>
