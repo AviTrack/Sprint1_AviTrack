@@ -49,13 +49,27 @@ VALUES
 ('Bento Henrique Alexandre Ramos','Monitor','bento-ramos94@spires.com.br','nfnEAhzFZc','Aviário João e Lucas Ltda'),
 ('Priscila Ayla Jennifer Monteiro','Representante','priscila_ayla_monteiro@htmail.com','eCzBPJgwEE','Granja Julia e Gustavo Ltda'),
 ('Edson Felipe Porto','Monitor','edson-porto76@ynail.com.br','h8Q5QCATC0','Granja Julia e Gustavo Ltda');
-INSERT INTO sensor(temperatura,data_horaSensor,setorSensor,responsavelSensor) 
+
+INSERT INTO sensor(temperatura,data_horaSensor,setorSensor,responsavelSensor)
 VALUES
 (16.10,'2023-12-31 14:30:00',"Sul","Teresinha Stella Nina Rocha"),
 (19.10,'2023-12-31 15:30:00',"Leste","Alice Rosa Santos"),
 (18.10,'2023-12-31 16:30:00',"Oeste","ique Alexandre Ramos"),
 (20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
-SELECT * FROM sensor;
+
+
+SELECT nomeEmpresaCliente as 'Nome da Empresa', cnpjEmpresaCliente as 'CNPJ da Empresa', emailEmpresaCliente as 'Email da Empresa', telefoneEmpresaCliente as 'Telefone da Empresa', cepEmpresaCliente as 'Cep da Empresa', ufEmpresaCliente as 'Estado da Empresa',
+cidadeEmpresaCliente as 'Cidadade da Empresa',ruaEmpresaCliente as 'Rua da Empresa',numeroEmpresaCliente as 'Número da Empresa'  FROM empresaCliente;
+
+
+SELECT nomeFuncionarioEmpresa as 'Nome do Funcionário', cargoFuncionarioEmpresa as 'Cargo do Funcionario',emailFuncionarioEmpresa as 'Email do Funcionário',senhaFuncionarioEmpresa as 'Senha do Funcionário',
+ nomeEmpresa as 'Funcionário Representa'FROM funcionarioEmpresa;
+ 
+ SELECT temperatura as 'Temperatura Celsius',  data_horaSensor as 'Hora Registrada', setorSensor as 'Local do Sensor',responsavelSensor as 'Responsavel so Sensor'  FROM sensor;
+ 
+ 
+
+
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
 -- João Pedro
@@ -65,5 +79,3 @@ SELECT * FROM sensor;
 -- Kevin Silva
 -- Gustavo Pimentel
 -- Vinicius Silva
-
-
