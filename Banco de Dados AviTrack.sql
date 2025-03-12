@@ -68,7 +68,6 @@ SELECT nomeFuncionarioEmpresa as 'Nome do Funcionário', cargoFuncionarioEmpresa
  SELECT temperatura as 'Temperatura Celsius',  data_horaSensor as 'Hora Registrada', setorSensor as 'Local do Sensor',responsavelSensor as 'Responsavel so Sensor'  FROM sensor;
  
  
- 
 UPDATE empresaCliente SET nomeEmpresaCliente = "Chiken Carolina Ltda" WHERE idEmpresaCliente =  1;
 UPDATE empresaCliente SET nomeEmpresaCliente = "Aviário Levi Ltda" WHERE idEmpresaCliente =  2;
 
@@ -88,7 +87,6 @@ DELETE FROM funcionarioEmpresa WHERE idFuncionarioEmpresa = 2;
 
 DELETE FROM sensor WHERE idSensor = 1;
 DELETE FROM sensor WHERE idSensor = 2;
-
 
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
