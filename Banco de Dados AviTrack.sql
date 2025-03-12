@@ -30,35 +30,29 @@ CREATE TABLE sensor(
 
 INSERT INTO empresaCliente (nomeEmpresaCliente, cnpjEmpresaCliente, emailEmpresaCliente, telefoneEmpresaCliente, cepEmpresaCliente, ufEmpresaCliente, cidadeEmpresaCliente, ruaEmpresaCliente, numeroEmpresaCliente) 
 VALUES 
-('Empresa A', '12.345.678/0001-99', 'contato@empresaA.com.br', '(11)98765-4321', '12345-678', 'SP', 'São Paulo', 'Rua das Flores', '123'),
-('Empresa B', '98.765.432/0001-88', 'contato@empresaB.com.br', '(21)99876-5432', '23456-789', 'RJ', 'Rio de Janeiro', 'Avenida Brasil', '456'),
-('Empresa C', '11.223.344/0001-77', 'contato@empresaC.com.br', '(31)98765-4321', '34567-890', 'MG', 'Belo Horizonte', 'Rua da Paz', '789'),
-('Empresa D', '22.334.455/0001-66', 'contato@empresaD.com.br', '(41)99987-6543', '45678-901', 'PR', 'Curitiba', 'Rua das Américas', '321'),
-('Empresa E', '33.445.566/0001-55', 'contato@empresaE.com.br', '(51)98876-5432', '56789-012', 'RS', 'Porto Alegre', 'Avenida dos Estados', '654');
-
-
+('Larissa e Carolina Chiken Ltda', '12.345.678/0001-99', 'atendimento@larissaecarolinachikenltda.com.br', '(11)98765-4321', '12345-678', 'SP', 'São Paulo', 'Rua das Flores', '123'),
+('Levi e Arthur aviário Ltda', '98.765.432/0001-88', 'comunicacoes@leviearthuraviariotda.com.br', '(21)99876-5432', '23456-789', 'RJ', 'Rio de Janeiro', 'Avenida Brasil', '456'),
+('Granja Luiz e Giovanni Ltda', '11.223.344/0001-77', 'sac@luizegiovannigranjaltda.com.br', '(31)98765-4321', '34567-890', 'MG', 'Belo Horizonte', 'Rua da Paz', '789'),
+('Aviário João e Lucas Ltda', '22.334.455/0001-66', 'financeiro@joaoelucasaviarioltda.com.br', '(41)99987-6543', '45678-901', 'PR', 'Curitiba', 'Rua das Américas', '321'),
+('Granja Julia e Gustavo Ltda', '33.445.566/0001-55', 'diretoria@juliaegustavogranjaltda.com.br', '(51)98876-5432', '56789-012', 'RS', 'Porto Alegre', 'Avenida dos Estados', '654');
 
 INSERT INTO funcionarioEmpresa(nomeFuncionarioEmpresa,cargoFuncionarioEmpresa,emailFuncionarioEmpresa,senhaFuncionarioEmpresa,nomeEmpresa) 
 VALUES
-('','','','',''),
-('','','','',''),
-('','','','',''),
-('','','','',''),
-('','','','',''),
-('','','','','');
+('João Manoel Anderson da Mata','Representante','joao_manoel_damata@mindesign.com.br','ojBKH2BhOg','Larissa e Carolina Chiken Ltda'),
+('Teresinha Stella Nina Rocha','Monitor','teresinhastellarocha@fileno.com.br','u28If4tXn3','Larissa e Carolina Chiken Ltda'),
 
+('Miguel Francisco Martins','Representante','miguel_martins@yogoothies.com.br','howaw54QZG','Levi e Arthur aviário Ltda'),
+('Alice Rosa Santos','Monitor','alice_rosa_santos@iaru.com.br','howaw54QZG','Levi e Arthur aviário Ltda'),
+
+('Yago Bento Santos','Representante','yagoyagosantos@zaniniengenharia.com.br','7ws3PAgmep','Granja Luiz e Giovanni Ltda'),
+('Clarice Rosângela da Cruz','Monitor','claricerosangeladacruz@oi15.com.br','RawyI8nFzs','Granja Luiz e Giovanni Ltda'),
+
+('Letícia Emilly Esther Moreira','Representante','leticia_moreira@acritica.com.br','up9cqZLi1G','Aviário João e Lucas Ltda'),
+('Bento Henrique Alexandre Ramos','Monitor','bento-ramos94@spires.com.br','nfnEAhzFZc','Aviário João e Lucas Ltda'),
+
+('Priscila Ayla Jennifer Monteiro','Representante','priscila_ayla_monteiro@htmail.com','eCzBPJgwEE','Granja Julia e Gustavo Ltda'),
+('Edson Felipe Porto','Monitor','edson-porto76@ynail.com.br','h8Q5QCATC0','Granja Julia e Gustavo Ltda');
 INSERT INTO sensor VALUES();
-
-
-
-
-
-
-
-
-
-
-
 
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
