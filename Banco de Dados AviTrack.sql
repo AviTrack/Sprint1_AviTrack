@@ -23,7 +23,7 @@ CREATE TABLE funcionarioEmpresa(
  );
 CREATE TABLE sensor(
         idSensor INT PRIMARY KEY AUTO_INCREMENT,
-        temperatura DECIMAL(4.2) NOT NULL,
+        temperatura DECIMAL(4,2) NOT NULL,
         data_horaSensor DATETIME NOT NULL,
         setorSensor VARCHAR(100) NOT NULL,
         responsavelSensor VARCHAR(50) NOT NULL
@@ -55,7 +55,7 @@ VALUES
 (19.10,'2023-12-31 15:30:00',"Leste","Alice Rosa Santos"),
 (18.10,'2023-12-31 16:30:00',"Oeste","ique Alexandre Ramos"),
 (20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
-
+SELECT * FROM sensor;
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
 -- João Pedro
