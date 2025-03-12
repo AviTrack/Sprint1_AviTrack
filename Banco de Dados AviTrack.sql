@@ -50,10 +50,11 @@ VALUES
 ('Priscila Ayla Jennifer Monteiro','Representante','priscila_ayla_monteiro@htmail.com','eCzBPJgwEE','Granja Julia e Gustavo Ltda'),
 ('Edson Felipe Porto','Monitor','edson-porto76@ynail.com.br','h8Q5QCATC0','Granja Julia e Gustavo Ltda');
 INSERT INTO sensor(temperatura,data_horaSensor,setorSensor,responsavelSensor) 
-VALUES(16.10,'2023-12-31 14:30:00',"Sul","Teresinha Stella Nina Rocha"),
-VALUES(19.10,'2023-12-31 15:30:00',"Leste","Alice Rosa Santos"),
-VALUES(18.10,'2023-12-31 16:30:00',"Oeste","ique Alexandre Ramos"),
-VALUES(20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
+VALUES
+(16.10,'2023-12-31 14:30:00',"Sul","Teresinha Stella Nina Rocha"),
+(19.10,'2023-12-31 15:30:00',"Leste","Alice Rosa Santos"),
+(18.10,'2023-12-31 16:30:00',"Oeste","ique Alexandre Ramos"),
+(20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
 
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
