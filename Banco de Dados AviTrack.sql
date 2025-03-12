@@ -1,9 +1,10 @@
+-- Active: 1739973101391@@127.0.0.1@3306@teste
 CREATE DATABASE avitrack;
 USE avitrack;
 CREATE TABLE empresaCliente(
 		idEmpresaCliente INT PRIMARY KEY AUTO_INCREMENT,
         nomeEmpresaCliente VARCHAR(50) NOT NULL,
-		cnpjEmpresaCliente CHAR(15) NOT NULL,
+		cnpjEmpresaCliente CHAR(18) NOT NULL,
         emailEmpresaCliente VARCHAR(50) NOT NULL,
         telefoneEmpresaCliente VARCHAR(15) NOT NULL,
         cepEmpresaCliente VARCHAR(15) NOT NULL,
@@ -40,19 +41,19 @@ INSERT INTO funcionarioEmpresa(nomeFuncionarioEmpresa,cargoFuncionarioEmpresa,em
 VALUES
 ('João Manoel Anderson da Mata','Representante','joao_manoel_damata@mindesign.com.br','ojBKH2BhOg','Larissa e Carolina Chiken Ltda'),
 ('Teresinha Stella Nina Rocha','Monitor','teresinhastellarocha@fileno.com.br','u28If4tXn3','Larissa e Carolina Chiken Ltda'),
-
 ('Miguel Francisco Martins','Representante','miguel_martins@yogoothies.com.br','howaw54QZG','Levi e Arthur aviário Ltda'),
 ('Alice Rosa Santos','Monitor','alice_rosa_santos@iaru.com.br','howaw54QZG','Levi e Arthur aviário Ltda'),
-
 ('Yago Bento Santos','Representante','yagoyagosantos@zaniniengenharia.com.br','7ws3PAgmep','Granja Luiz e Giovanni Ltda'),
 ('Clarice Rosângela da Cruz','Monitor','claricerosangeladacruz@oi15.com.br','RawyI8nFzs','Granja Luiz e Giovanni Ltda'),
-
 ('Letícia Emilly Esther Moreira','Representante','leticia_moreira@acritica.com.br','up9cqZLi1G','Aviário João e Lucas Ltda'),
 ('Bento Henrique Alexandre Ramos','Monitor','bento-ramos94@spires.com.br','nfnEAhzFZc','Aviário João e Lucas Ltda'),
-
 ('Priscila Ayla Jennifer Monteiro','Representante','priscila_ayla_monteiro@htmail.com','eCzBPJgwEE','Granja Julia e Gustavo Ltda'),
 ('Edson Felipe Porto','Monitor','edson-porto76@ynail.com.br','h8Q5QCATC0','Granja Julia e Gustavo Ltda');
-INSERT INTO sensor VALUES();
+INSERT INTO sensor(temperatura,data_horaSensor,setorSensor,responsavelSensor) 
+VALUES(16.10,'2023-12-31 14:30:00',"Sul","Teresinha Stella Nina Rocha"),
+VALUES(19.10,'2023-12-31 15:30:00',"Leste","Alice Rosa Santos"),
+VALUES(18.10,'2023-12-31 16:30:00',"Oeste","ique Alexandre Ramos"),
+VALUES(20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
 
 -- Grupo 04 de Pesquisa e Inovação 
 -- Mateus da Silva de Souza
