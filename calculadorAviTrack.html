@@ -50,8 +50,10 @@
 
     if(lucro < 0){
       var cor = `red`;
+      var mensagem =   `Sua perda líquida é de:`;
     }else{
       var cor  = `green`;
+      var mensagem =   `Seu lucro líquido obtido é de:`;
     }
 
     div_resultado.innerHTML =
@@ -59,7 +61,7 @@
         A sua produção conta com <span style="color: blue;"><b>${qtdFrango}</b></span> cabeças de frango O peso total é de: <span style="color: blue;"><b>${kiloTotal}Kg.</span> </b><br>
         O faturamento bruto é de: <span style="color: green;"> <b>R$${precoBruto}</b><br></span>
         Os custos totais de produção somam:<span style="color: green;"> <b>R$${despesaTotal}</b><br></span>
-        Seu lucro líquido obtido é de: <span style="color: ${cor};"><b>R$${lucro}</b>.</span>
+  ${mensagem} <span style="color: ${cor};"><b>R$${lucro}</b>.</span>
             <br><br><br>
         Com a taxa de mortalidade de <span style="color: blue;"><b>${taxaMortalidade}</b></span> frangos São perdidos <span style="color: blue;"><b>${kiloMortalidade}</b></span><br>
         O que reduz os lucros em:<span style="color: red;"><b>R$${precoBrutoMortalidade}</b>.</span><br>
