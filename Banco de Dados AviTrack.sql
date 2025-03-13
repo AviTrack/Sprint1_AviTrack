@@ -58,14 +58,33 @@ VALUES
 (20.10,'2023-12-31 17:30:00',"Norte","Edson Felipe Porto");
 
 
-SELECT nomeEmpresaCliente as 'Nome da Empresa', cnpjEmpresaCliente as 'CNPJ da Empresa', emailEmpresaCliente as 'Email da Empresa', telefoneEmpresaCliente as 'Telefone da Empresa', cepEmpresaCliente as 'Cep da Empresa', ufEmpresaCliente as 'Estado da Empresa',
-cidadeEmpresaCliente as 'Cidadade da Empresa',ruaEmpresaCliente as 'Rua da Empresa',numeroEmpresaCliente as 'Número da Empresa'  FROM empresaCliente;
+SELECT 
+       nomeEmpresaCliente as 'Nome da Empresa', 
+       cnpjEmpresaCliente as 'CNPJ da Empresa', 
+       emailEmpresaCliente as 'Email da Empresa', 
+       telefoneEmpresaCliente as 'Telefone da Empresa', 
+       cepEmpresaCliente as 'Cep da Empresa', 
+       ufEmpresaCliente as 'Estado da Empresa',
+       cidadeEmpresaCliente as 'Cidadade da Empresa',
+       ruaEmpresaCliente as 'Rua da Empresa',
+       numeroEmpresaCliente as 'Número da Empresa'  
+       FROM empresaCliente;
 
 
-SELECT nomeFuncionarioEmpresa as 'Nome do Funcionário', cargoFuncionarioEmpresa as 'Cargo do Funcionario',emailFuncionarioEmpresa as 'Email do Funcionário',senhaFuncionarioEmpresa as 'Senha do Funcionário',
- nomeEmpresa as 'Funcionário Representa'FROM funcionarioEmpresa;
+SELECT 
+       nomeFuncionarioEmpresa as 'Nome do Funcionário', 
+       cargoFuncionarioEmpresa as 'Cargo do Funcionario',
+       emailFuncionarioEmpresa as 'Email do Funcionário',
+       senhaFuncionarioEmpresa as 'Senha do Funcionário',
+       nomeEmpresa as 'Funcionário Representa'
+       FROM funcionarioEmpresa;
  
- SELECT temperatura as 'Temperatura Celsius',  data_horaSensor as 'Hora Registrada', setorSensor as 'Local do Sensor',responsavelSensor as 'Responsavel so Sensor'  FROM sensor;
+ SELECT 
+        temperatura as 'Temperatura Celsius',  
+        data_horaSensor as 'Hora Registrada', 
+        setorSensor as 'Local do Sensor',
+        responsavelSensor as 'Responsavel so Sensor'  
+        FROM sensor;
  
  
 UPDATE empresaCliente SET nomeEmpresaCliente = "Chiken Carolina Ltda" WHERE idEmpresaCliente =  1;

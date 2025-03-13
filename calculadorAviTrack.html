@@ -19,7 +19,7 @@
     <input type="text" id="input_despesaMedioFrango" placeholder="Exemplo R$5.00" /><br /><br />
 
     <b>Mortalidade de frango aceitavel:</b><br/>
-    <input type="text" name="" id="input_mortalidadeFrango" placeholder="Exemplo 10%" /><br /><br />
+    <input type="text" name="" id="input_mortalidadeFrango" placeholder="Exemplo 10" /><br /><br />
 
     <button onclick="calcularDepesas()">Calcular Despesas</button>
     <div id="div_resultado"></div>
@@ -46,19 +46,28 @@
     var despesaTotalMortalidade = despesaMedioFrango * taxaMortalidade;
     var perdaTotal = despesaTotalMortalidade + precoBrutoMortalidade;
 
+    var perdaPorcentagem = (perdaTotal/lucro)*100
+
+    if(lucro < 0){
+      var cor = `red`;
+    }else{
+      var cor  = `green`;
+    }
+
     div_resultado.innerHTML =
        `
-        A sua produção conta com ${qtdFrango} cabeças de frango.<br>
-        O peso total de todos os frangos é de:${kiloTotal}Kg.<br>
+        A sua produção conta com <span style="color: blue;"><b>${qtdFrango}</b></span> cabeças de frango O peso total é de: <span style="color: blue;"><b>${kiloTotal}Kg.</span> </b><br>
         O faturamento bruto é de: <span style="color: green;"> <b>R$${precoBruto}</b><br></span>
         Os custos totais de produção somam:<span style="color: green;"> <b>R$${despesaTotal}</b><br></span>
-        Seu lucro líquido obtido é de: <span style="color: green;"><b>R$${lucro}</b>.</span>
+        Seu lucro líquido obtido é de: <span style="color: ${cor};"><b>R$${lucro}</b>.</span>
             <br><br><br>
-        Com a taxa de mortalidade de ${taxaMortalidade} frangos<br>
-        São perdidos ${kiloMortalidade}Kg.<br>
+        Com a taxa de mortalidade de <span style="color: blue;"><b>${taxaMortalidade}</b></span> frangos São perdidos <span style="color: blue;"><b>${kiloMortalidade}</b></span><br>
         O que reduz os lucros em:<span style="color: red;"><b>R$${precoBrutoMortalidade}</b>.</span><br>
         O custos de produção desses frangos foram: <span style="color: red;"><b>R$${despesaTotalMortalidade}</b>.</span><br>
-        A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal}</b>.</span>
+        A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal}</b>.</span><br>
+        <br>
+
+        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal}</b>.</span> que equivale <span style="color: blue;"><b>${perdaPorcentagem}%</b></span> do valor <span style="color: green;"><b>R$${lucro}</b>.</span>
        `;
   }
 </script>
