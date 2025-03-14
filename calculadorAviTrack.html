@@ -48,6 +48,10 @@
 
     var porcentagem = (perdaTotal/lucro)*100
 
+    if (lucro == 0 ) {
+        porcentagem = 0
+
+    }
 
     if(lucro < 0){
       var cor = `red`;
