@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cálculo de Produção de Aviário</title>
+</head>
+<body><center>
+    <h1>Cálculo de Produção de Aviário</h1>
+
+        <h2>Número de Frangos:</h2>
+        <input type="text" id="input_numFrangos" placeholder="Informe o número de frangos">
+    <br>
+        <h2>Peso Médio do Frango (em kg):</h2>
+        <input type="text" id="input_pesoMedio" placeholder="Informe o peso médio do frango">
+ 
+    <br>
+
+
+        <h2>Preço Médio do Frango (por kg):</h2>
+        <input type="text" id="input_precoMedio" placeholder="Informe o preço médio do frango">
+ 
+    <br>
+
+        <h2>Perdas na Produção pela Temperatura (por Unidade):</h2>
+        <input type="text" id="input_perda" placeholder="Informe a quantidade de perdas">
+
+    <br>
+    <br>
+
+    <button onclick="calcular()">Calcular</button>
+    <br><br>
+
+    <div id="div_resultado">
+</center>
+
+    <script>
+        function calcular() {
+            var numFrangos = Number(input_numFrangos.value);
+            var pesoMedio = Number(input_pesoMedio.value);
+            var precoMedio = Number(input_precoMedio.value);
+            var perda = Number(input_perda.value);
+
+            // Calcula o total de kg de frango antes das perdas
+            var totalKg = numFrangos * pesoMedio;
+            
+            
+            // Cálculo dos gastos com os frangos (assumindo um custo fixo de R$2 por frango)
+            var custoPorFrango = 2;
+            var gastos = totalKg * custoPorFrango;
+    
+            // Cálculo dos lucros com os frangos
+            var valorFrango = precoMedio
+            var valorVenda = totalKg * valorFrango;
+            var lucros = valorVenda - gastos
+            
+            // Calcula as perdas na produção
+             var kgPerdido = perda * pesoMedio;
+
+            // Cálculo dos gastos com as perdas
+            var gastosPerdas = kgPerdido * custoPorFrango; 
+
+
+            //Cálculo de Lucros com o sistema de monitoramento
+            var lucrostotais = gastosPerdas + lucros;
+
+            // Exibe os resultados
+           div_resultado.innerHTML = `O peso total dos seus frangos são ${totalKg}Kg, e com os frangos há um gasto de: R$${gastos},00.<br>
+           Com o preço de venda de ${valorVenda},00 há um lucro de: R$${lucros},00<br>.`; 
+           div_resultado.innerHTML += `Com a quantia de ${perda} frangos mortos pela temperatura,
+         os gastos com os frangos perdidos são de: R$${gastosPerdas}<br>`;
+            div_resultado.innerHTML += `Com a implementação do sistema de monitoramento, há um lucro de: R$${lucrostotais}`;
+        }
+    </script>
