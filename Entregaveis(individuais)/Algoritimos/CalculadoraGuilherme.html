@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Calculadora financeira</h1>
+        <!-- Preço frango: R$ 4,52 por kilo -->
+        <!-- cada frango 184g por dia -->
+        <!-- cada frango come 3.6kg mes  -->
+        <!-- cada frango come 5.4kg de comida ate a vida adulta -->
+        <!-- preço medio raçao 5.4 = 22 -->
+    <input type="text" id="qtd_frangos" placeholder="Frangos:">
+    <button style="padding: 5px 30px;" onclick="calcular()">Calcular</button>
+    <div id="div_msg"></div>
+    <div id="div_msg2"></div>
+    <div  id="div_msg3"></div>
+</body>
+</html>
+
+<script>
+
+   
+
+    function calcular() {
+        frango  = Number(qtd_frangos.value)
+        racao = frango * 5.4
+        gastoRacao = frango * 22
+        precofrango = frango * 4.52
+        
+        if (frango <= 0) {
+            div_msg.innerHTML = `Insira uma quantidade de frango valido`
+        } else {
+        div_msg.innerHTML = `Seus ${frango} Frangos consomem ${racao}kg de comida ate a vida adulta`
+        div_msg2.innerHTML = `voce gasta exatamente <span style="color: red;"> R$${gastoRacao} </span> Reais com ração`
+        div_msg3.innerHTML = `se voce perder 5% dos seus frangos por causa de problemas de temperatura voce vai perder <span style="color: red;">  R$${gastoRacao * 5/100} </span> Reais somente com ração e <span style="color: red;">  R$${gastoRacao * 5/100 + precofrango * 5/100} </span> Reais no preço total `
+    }
+
+    }
+</script>
