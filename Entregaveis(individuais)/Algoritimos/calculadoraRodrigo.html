@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+
+<body>
+    <h1>AVITRACK</h1>
+    <br>
+    <h2>Calculadora financeira</h2>
+    <br>
+    <h3>Digite a quantidade de frango do aviário</h3>
+    <input type="text" id="input_aves">
+    <h3>Digite o peso médio dos frangos</h3>
+    <input type="text" id="input_peso">
+    <br><br>
+    <button onclick="calcular()">Calcular</button>
+    <br>
+    <div id="div_msg"></div>
+</body>
+
+</html>
+
+<script>
+    function calcular() {
+        var qtdAves = Number(input_aves.value)
+        var pesoMedio = Number(input_peso.value)
+        var qtdTotalPeso = qtdAves * pesoMedio
+        var valorTotalNinhada = qtdTotalPeso * 4.62
+
+        div_msg.innerHTML = `
+        Voce tera em média ${qtdTotalPeso}kg de frango.<br>
+        Cada frango custa R$4,62<br>
+        Ao final de 45 dias voce obterá um lucro de R$${valorTotalNinhada}.`
+    }
+</script>
