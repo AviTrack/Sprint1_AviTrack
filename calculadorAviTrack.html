@@ -4,6 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+      }
+    </style>
   </head>
   <body>
     <b>Quantidade de cabeças de frango:</b> <br />
@@ -47,37 +52,51 @@
     var perdaTotal = despesaTotalMortalidade + precoBrutoMortalidade;
 
     var porcentagem = (perdaTotal/lucro)*100
-
-    if (lucro == 0 ) {
-        porcentagem = 0
+    if (qtdFrango == 0) {
+      alert(`Por favor insira valores validos`);
+    } else {
+      if (pesoMedioFrango == 0) {
+        alert(`Por favor insira valores validos`);
+      } else {
+        if (precoMedioFrango == 0) {
+          alert(`Por favor insira valores validos`);
+        } else {
+          if (despesaMedioFrango == 0) {
+            alert(`Por favor insira valores validos`);
+          } else {
+            if (taxaMortalidade == 0) {
+              alert(`Por favor insira valores validos`);
+            } else {
+              if (lucro == 0) {
+                porcentagem = 0
+              }
+              if (porcentagem <= 0 ) {
+                porcentagem = 0
+                }
+              if (lucro < 0) {
+                var cor = `red`;
+                var mensagem = `Sua perda líquida é de:`;
+              } else {
+                var cor = `green`;
+                var mensagem = `Seu lucro líquido obtido é de:`;
+              }
+              div_resultado.innerHTML = `
+      A sua produção conta com <span style="color: blue;"><b>${qtdFrango.toFixed(0)}</b></span> cabeças de frango. O peso total é de: <span style="color: blue;"><b>${kiloTotal.toFixed(2)}Kg.</b></span><br>
+        O faturamento bruto é de: <span style="color: green;"> <b>R$${precoBruto.toFixed(2)}</b></span><br>
+        Os custos totais de produção somam: <span style="color: red;"> <b>R$${despesaTotal.toFixed(2)}</b></span><br>
+        ${mensagem} <span style="color: ${cor};"><b>R$${lucro.toFixed(2)}</b></span><br><br><br>
+        
+        Com a taxa de mortalidade de <span style="color: blue;"><b>${taxaMortalidade.toFixed(0)}</b></span> frangos. São perdidos <span style="color: blue;"><b>${kiloMortalidade.toFixed(2)}Kg.</b></span><br>
+        O que reduz os lucros em: <span style="color: red;"><b>R$${precoBrutoMortalidade.toFixed(2)}</b></span><br>
+        Os custos de produção desses frangos foram: <span style="color: red;"><b>R$${despesaTotalMortalidade.toFixed(2)}</b></span><br>
+        A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span><br><br>
+        
+        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span>.
+      `;
+            }
+          }
+        }
+      }
     }
-    if (porcentagem <= 0 ) {
-        porcentagem = 0
-    }
-    
-
-
-    if(lucro < 0){
-      var cor = `red`;
-      var mensagem =   `Sua perda líquida é de:`;
-    }else{
-      var cor  = `green`;
-      var mensagem =   `Seu lucro líquido obtido é de:`;
-    }
-
-    div_resultado.innerHTML =
-       `
-        A sua produção conta com <span style="color: blue;"><b>${qtdFrango}</b></span> cabeças de frango O peso total é de: <span style="color: blue;"><b>${kiloTotal}Kg.</span> </b><br>
-        O faturamento bruto é de: <span style="color: green;"> <b>R$${precoBruto}</b><br></span>
-        Os custos totais de produção somam:<span style="color: green;"> <b>R$${despesaTotal}</b><br></span>
-        ${mensagem} <span style="color: ${cor};"><b>R$${lucro}</b>.</span>
-                          <br><br><br>
-        Com a taxa de mortalidade de <span style="color: blue;"><b>${taxaMortalidade}</b></span> frangos São perdidos <span style="color: blue;"><b>${kiloMortalidade}Kg.</b></span><br>
-        O que reduz os lucros em:<span style="color: red;"><b>R$${precoBrutoMortalidade}</b>.</span><br>
-        O custos de produção desses frangos foram: <span style="color: red;"><b>R$${despesaTotalMortalidade}</b>.</span><br>
-        A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal}</b>.</span><br>
-        <br>
-        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal}</b>.</span> que equivale <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro}</b>.</span>
-       `;
   }
 </script>
