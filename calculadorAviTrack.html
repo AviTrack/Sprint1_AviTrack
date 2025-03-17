@@ -39,18 +39,34 @@
     var pesoMedioFrango = Number(input_kgMedioFrango.value);
     var precoMedioFrango = Number(input_precoMedioFrango.value);
     var despesaMedioFrango = Number(input_despesaMedioFrango.value);
-    var taxaMortalidade = Number(input_mortalidadeFrango.value);
+    var totalMortalidade = Number(input_mortalidadeFrango.value);
 
     var kiloTotal = qtdFrango * pesoMedioFrango;
     var precoBruto = kiloTotal * precoMedioFrango;
     var despesaTotal = despesaMedioFrango * kiloTotal;
     var lucro = precoBruto - despesaTotal;
 
-    var kiloMortalidade = taxaMortalidade * pesoMedioFrango;
+    var kiloMortalidade = totalMortalidade * pesoMedioFrango;
     var precoBrutoMortalidade = kiloMortalidade * precoMedioFrango;
-    var despesaTotalMortalidade = despesaMedioFrango * taxaMortalidade;
+    var despesaTotalMortalidade = despesaMedioFrango * totalMortalidade;
     var perdaTotal = despesaTotalMortalidade + precoBrutoMortalidade;
 
+
+    var porcentagemMorte = totalMortalidade / qtdFrango * 100 
+
+    if(porcentagemMorte < 5){
+      var corMortalidade = `green`
+      var situacao = `ESPERADO`
+    }else if(porcentagemMorte == 5){
+      var corMortalidade = `orange`
+       var situacao = `ALERTA`
+    }else{
+      var corMortalidade = `red`
+      var situacao = `PREOUCUPANTE`
+    }
+
+
+// calculando a porcentagem de lucro
     var porcentagem = (perdaTotal/lucro)*100
     if (qtdFrango == 0) {
       alert(`Por favor insira valores validos`);
@@ -64,7 +80,7 @@
           if (despesaMedioFrango == 0) {
             alert(`Por favor insira valores validos`);
           } else {
-            if (taxaMortalidade == 0) {
+            if (totalMortalidade == 0) {
               alert(`Por favor insira valores validos`);
             } else {
               if (lucro == 0) {
@@ -86,13 +102,15 @@
         Os custos totais de produção somam: <span style="color: red;"> <b>R$${despesaTotal.toFixed(2)}</b></span><br>
         ${mensagem} <span style="color: ${cor};"><b>R$${lucro.toFixed(2)}</b></span><br><br><br>
         
-        Com a taxa de mortalidade de <span style="color: blue;"><b>${taxaMortalidade.toFixed(0)}</b></span> frangos. São perdidos <span style="color: blue;"><b>${kiloMortalidade.toFixed(2)}Kg.</b></span><br>
+        Com a taxa de mortalidade de <span style="color: blue;"><b>${totalMortalidade.toFixed(0)}</b></span> frangos. São perdidos <span style="color: blue;"><b>${kiloMortalidade.toFixed(2)}Kg.</b></span><br>
         O que reduz os lucros em: <span style="color: red;"><b>R$${precoBrutoMortalidade.toFixed(2)}</b></span><br>
         Os custos de produção desses frangos foram: <span style="color: red;"><b>R$${despesaTotalMortalidade.toFixed(2)}</b></span><br>
         A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span><br><br>
         
-        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span>.
-      `;
+        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span>.<br><br>
+
+        Situação atual: <span style="color: ${corMortalidade};"><b>${situacao}</b></span> você teve uma baixa de ${totalMortalidade} frangos que respresenta ${porcentagemMorte}% do total de ${qtdFrango} frangos
+        `;
             }
           }
         }
