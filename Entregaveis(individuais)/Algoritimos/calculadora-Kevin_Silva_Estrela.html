@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira de Aviários</title>
+</head>
+<body style="background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxkG8NzbfzgVbYvBBcF9CpIJt3_imIRw6sNg&s);background-repeat: no-repeat; background-attachment: fixed; background-size: cover;">
+    
+    <div style="text-align: center; color: rgb(250, 250, 250);">
+        <b>
+        
+        <h1>Calculadora Financeira de Aviários</h1>
+
+        <h2>Quantidade de frangos:</h2>
+        <input type="text" id="input_quant_frangos">
+        <br><br>
+    
+        <h2>Peso médio dos frangos:</h2>
+        <input type="text" id="input_peso_frangos">
+        <br><br>
+    
+        <h2>Custo de produção de cada frango:</h2>
+        <input type="text" id="input_producao">
+        <br><br>
+    
+        <h2>Custo de venda de cada frango:</h2>
+        <input type="text" id="input_venda">
+        <br><br>
+    
+        <button onclick="calcular()">Calcular valor</button>
+        <br><br>
+        
+        </b>
+        <div id="div_mensagem"></div>    
+    </div>
+</body>
+</html>
+
+<script>
+    function calcular() {
+        var quant_frangos = Number(input_quant_frangos.value);
+        var peso = Number(input_peso_frangos.value);
+        var producao = Number(input_producao.value);
+        var venda = Number(input_venda.value);
+        var resultado = ((quant_frangos * peso * venda) - (quant_frangos * peso * producao)).toFixed(2)
+        
+        if (resultado >= 0) {
+            div_mensagem.innerHTML = `<h2><span style="background-color: black; color: green">Saldo: R$ + ${resultado}</span></h2>`
+        } else {
+            div_mensagem.innerHTML = `<h2><span style="background-color: black; color: red">Saldo: R$ ${resultado}</span></h2>`
+        }
+        
+    }
+</script>
