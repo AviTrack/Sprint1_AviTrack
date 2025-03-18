@@ -66,6 +66,8 @@ SELECT * FROM Empresa WHERE tamanho = 'Média';
 SELECT CNPJ AS 'Cadastro Nacional da Pessoa Jurídica',
  responsavelAtendimento AS 'O cara da responsa'
  FROM Empresa; 
+ 
+ 
 
 ALTER TABLE Empresa DROP CONSTRAINT PORTE;
 
@@ -75,3 +77,146 @@ DROP TABLE Empresa;
 
 
 
+-- ---------------------------------------------------------------------------------------------------
+-- cadastroEmpresa(funcionario) 2ª 
+
+USE tabelasPI;
+
+CREATE TABLE funcionario(
+idFuncionario INT PRIMARY KEY AUTO_INCREMENT,
+nomefuncionario VARCHAR(30) NOT NULL,
+CPF CHAR(14) NOT NULL,
+CEP CHAR(9) NOT NULL,
+telefone CHAR(15),
+email VARCHAR(50), 
+pisoSalarial VARCHAR(12),
+CONSTRAINT valor CHECK(pisoSalarial IN('alto','mediano','baixo')), 
+salario INT NOT NULL,
+CARGO VARCHAR(70) NOT NULL, 
+nacionalidade VARCHAR(20) NOT NULL
+); 
+
+INSERT INTO funcionario VALUES
+	(default,'Jairson lecal','615.707.117-63','89218-210','(48) 98934-7650','jailsonlecal@numero.com.br','mediano', 7000,'Desenvolvedor de Maquinas','Brasileiro'),
+	(default,'Nadir Tora','518.832.251-08','72916-348','(61) 98461-8437','nadiria@numero.com.br','baixo', 2000,'Faxineira','Brasileira'),
+    (default,'Jamon La Pomba','244.863.326-60','89052-252','(47) 99728-0370','lapombajamon@numero.com.br','alto', 10000,'Líder de Gerenciamento','Columbiano'),
+    (default,'Deliverson Joia','867.057.248-62','89218-210','(48) 98934-7650','delivery@numero.com.br','baixo', 1900,'Faxineiro','Brasileiro'),
+    (default,'Austin Solomon','062.907.293-06','24924-510','(21) 99728-1927','solomunmu@numero.com.br','alto', 12000,'Gerente de Exportação','Austriaco'),
+    (default,'Flores Bella','620.611.171-71','57040-526','(82) 99829-8631','floreta@numero.com.br','mediano', 6000,'Gerente de Galpão','Venezuelana');
+    
+SELECT * FROM funcionario;
+
+
+
+ALTER TABLE funcionario ADD COLUMN idadeAtual INT;
+
+ UPDATE funcionario SET idadeAtual = 45
+	 WHERE idFuncionario =1; 
+ UPDATE funcionario SET idadeAtual = 23
+	 WHERE idFuncionario =2; 
+ UPDATE funcionario SET idadeAtual = 32
+	 WHERE idFuncionario =3; 
+ UPDATE funcionario SET idadeAtual = 29
+	 WHERE idFuncionario =4; 
+ UPDATE funcionario SET idadeAtual = 38
+	 WHERE idFuncionario =5; 
+ UPDATE funcionario SET idadeAtual = 49
+	 WHERE idFuncionario =6; 
+     
+     
+ALTER TABLE Funcionario RENAME COLUMN salario to Dinherinho;
+
+SELECT * FROM funcionario;
+
+ALTER TABLE Funcionario DROP COLUMN CEP; 
+
+DELETE FROM Funcionario WHERE idFuncionario = 3;
+
+DELETE FROM Funcionario WHERE idFuncionario = 5;
+
+SELECT * FROM Funcionario;
+
+SELECT * FROM Funcionario WHERE pisoSalarial = 'alto';
+SELECT * FROM Funcionario WHERE pisoSalarial = 'mediano';
+
+SELECT CPF AS 'Cadastro de Pessoa Fisíca',
+pisoSalarial AS 'Olha o tanto de dinheirinho'
+ FROM Funcionario; 
+
+ALTER TABLE funcionario DROP CONSTRAINT valor;
+
+TRUNCATE TABLE funcionario;
+
+DROP TABLE funcionario; 
+
+
+-- ---------------------------------------------------------------------------------------------------------------------------------------------------
+
+-- cadastroSensor 3ª
+
+USE tabelasPI;
+
+CREATE TABLE sensor(
+idSensor INT PRIMARY KEY AUTO_INCREMENT,
+setor VARCHAR(100) NOT NULL,
+dataHora DATETIME NOT NULL,
+temperatura DECIMAL(3, 1) NOT NULL,
+responsavelSetor VARCHAR(30),
+categoriaSensor VARCHAR(20) NOT NULL,
+nomeSensor VARCHAR(10) NOT NULL, 
+garantiaSensor VARCHAR (7) NOT NULL
+);  
+
+INSERT INTO sensor VALUES
+	(default,'Setor de Desenvolvimento dos Frangos', '2025-09-02 14:30:00',28.5,'Nadilson Solores','Temperatura','LM-35','2 ANO'),
+    (default,'Setor de Nascimento de novos Frangos', '2025-11-12 20:15:25',35.5,'Joana Montana','Temperatura','LM-35','2 ANO'),
+    (default,'Setor de Análise de Frangos', '2025-02-20 15:02:20',15.0,'Ziraldo Dolores','Temperatura','LM-35','2 ANO'),
+    (default,'Setor de Reprodução', '2025-01-15 04:47:00',30.2,'Adolfo Rodira','Temperatura','LM-35','1 ANO'),
+    (default,'Setor de Alimentação', '2025-07-25 00:39:45',27.9,'Taína Zaira','Temperatura','LM-35','1 ANO'), 
+    (default,'Setor de Pesagem', '2025-06-30 23:45:42',26.4,'Nelson Collor','Temperatura','LM-35','1 ANO');
+    
+    
+SELECT * FROM sensor;
+
+ALTER TABLE sensor ADD COLUMN funcao VARCHAR(25);
+
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 1; 
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 2;
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 3; 
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 4; 
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 5; 
+	UPDATE sensor SET funcao = 'Monitorar'
+		WHERE idSensor = 6; 
+
+ALTER TABLE sensor RENAME COLUMN responsavelSetor to pessoaResponsavel;
+
+SELECT * FROM sensor;
+
+ALTER TABLE sensor DROP COLUMN nomeSensor; 
+
+DELETE FROM sensor WHERE idSensor = 2;
+
+DELETE FROM sensor WHERE idsensor = 6;
+
+
+SELECT pessoaResponsavel AS 'Chefe que manda e desmanda',
+garantiaSensor AS 'Tem tempo, fica tranquilo'
+ FROM sensor; 
+
+
+TRUNCATE TABLE funcionario;
+
+DROP TABLE funcionario; 
+    
+    
+    
+    
+    
+    
+    
+    
