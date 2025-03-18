@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Tabela financeira para calcular o faturamento e quantos frangos dispor para a venda atraves do kilo</h2>
+
+    <h4>Coloque quantos quilos ira vender?</h4>
+    <input type="text" id="inp_kilos"><br><br>
+
+    <h4>Coloque o preço do kilo.</h4>
+    <input type="text" id="inp_precoDoKilo"><br><br>
+
+    <h4>Coloque o kilo médio do Frango.</h4>
+    <input type="text" id="inp_kiloDoFrango"><br><br>
+
+    <button onclick="calcularKiloFrango()">Calcluar o Preço do kilo</button>
+
+    <div id="div_conteudo"></div>
+
+</body>
+</html>
+
+<script>
+
+    function calcularKiloFrango(){
+        //pegando a quantidade de kilos inseridos
+        var kilo = Number(inp_kilos.value)
+        var precoKilo = Number(inp_precoDoKilo.value)
+        var kiloFrango = Number(inp_kiloDoFrango.value)
+
+        //Calculando o preço atual do kilo do frango 
+        var preco = kilo * precoKilo
+
+        //Calcular quantos frango tem que dispor para a venda
+        var qtdFrangoVendido = kilo / kiloFrango  
+
+        div_conteudo.innerHTML = 
+        `
+        você ira faturar $${preco}<br>
+        você ter que entregar ${qtdFrangoVendido} frangos
+        `
+
+    }
+
+
+
+</script>
