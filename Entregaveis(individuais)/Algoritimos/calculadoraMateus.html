@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora Financeira</title>
+</head>
+<body>
+        <input type="text"  placeholder="Quantidade de frangos" id="input_qtdFrango" style="width: 300px;"><br><br>
+        <input type="text"  placeholder="Valor dos frangos" id="input_valorFrango" style="width: 300px;"><br><br>
+        <input type="text" placeholder="Custo de produçãos de cada frango" id="input_custoFrango" style="width: 300px;"><br><br>
+        <input type="text"  placeholder="Fragos mortos por conta da alta temperatura" id="input_mortalidadeFrango" style="width: 300px;"><br><br>
+        <button onclick="validarCampos()">Calcular Valor</button><br><br>
+        <div id="div_resultado"></div>
+</body>
+</html>
+<script>
+    //Separei em duas funções , pois escutei o senhor dizendo que ficava mais facil de dar manuteção no codigo.
+    function validarCampos(){
+        var qtdFrango = Number(input_qtdFrango.value);
+        var valorFrango = Number(input_valorFrango.value);
+        var custoFrango = Number(input_custoFrango.value);
+        var mortalidadeFrango = Number(input_mortalidadeFrango.value);
+        if(qtdFrango<=0){// achei uma função isNaN(); que verifica se o valor é do tipo numerico, mas não sei se podia usar;
+            alert(`Por favor insira valores validos`);
+        }else if(custoFrango<=0){
+            alert(`Por favor insira valores validos`);
+        }else if(mortalidadeFrango<=0){
+            alert(`Por favor insira valores validos`);
+        }else{
+            calcularDespesas();
+        }
+    }
+    function calcularDespesas(){
+        var qtdFrango = Number(input_qtdFrango.value);
+        var valorFrango = Number(input_valorFrango.value);
+        var custoFrango = Number(input_custoFrango.value);
+        var mortalidadeFrango = Number(input_mortalidadeFrango.value);
+        var despesaTotal = qtdFrango * custoFrango;
+        var lucroComMonitoramento = qtdFrango * valorFrango - despesaTotal;
+        var lucroSemMonitoramento = (qtdFrango - mortalidadeFrango) * valorFrango - despesaTotal;
+        var diferancaRenda = lucroComMonitoramento-lucroSemMonitoramento;   
+        var aumentoLucro = (diferancaRenda / lucroComMonitoramento) * 100;
+        div_resultado.innerHTML = `
+            Sua produção contém ${qtdFrango} frangos <br>
+            Onde cada frango tem o valor de R$${valorFrango.toFixed(2)}<br>
+            A despesa total para a criação dos frangos é de R$${despesaTotal.toFixed(2)}<br>
+            Porém com a morte de ${mortalidadeFrango} frangos o faturamento perdido foi de : R$${lucroSemMonitoramento.toFixed(2)}<br>
+            Então o lucro sem nossos serviços foi de R$${diferancaRenda.toFixed(2)}<br>
+            Com nossos serviços de monitoramento seu lucro poderia subir em até ${aumentoLucro.toFixed(2)}%<br>
+            Auxiliando sua empresa a chegar nos 100% de lucro<br>
+            Que seria de R$${lucroComMonitoramento.toFixed(2)}<br> 
+        `;           
+    }
+</script>
+
+
