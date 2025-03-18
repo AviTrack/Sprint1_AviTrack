@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="estilo.css">
+    <title>Document</title>
+</head>
+<body>
+ <div class="central">
+
+    Calculadora de Densidade Populacional do Aviário <br><br> 
+    Essa calculadora tem como objetivo calcular a quantidade de frangos por metro quadrado no aviário. <br>
+
+    A quantidade de frangos juntos, afeta diretamente na temperatura e na saúde do animal! <br><br>
+    Caso seja até 10 frangos por m² irá mostrar que o espaço está bom! <br>
+    Caso seja até 13 frangos por m² irá mostrar que o espaço precisa de ATENÇÃO! <br>
+    Caso a quantidade de frangos passe por m² irá mostrar que o espaço ESTÁ EM SUPERLOTAÇÃO!! <br>
+     O local necessita de Ajustes urgentemente! <br><br>
+
+        Informe o tamanho da área de criação dos frangos em metro quadrado? <br>
+    <input type="text" id="input_tamanho"> <br><br>
+    Quantidade de frangos no aviario? <br>
+    <input type="text" id="input_qtdFrango"> <br><br>
+
+    <button onclick="calcular()">Verificar Quantidade!!</button>
+    <div id="div_msg"></div>
+
+</div>
+</body>
+</html>
+
+<script>
+    function calcular(){
+        var area = Number(input_tamanho.value)
+        var frango = Number(input_qtdFrango.value)
+        var densidade = (frango / area);
+
+        if(densidade <= 10){
+            div_msg.innerHTML = `A quantidade ${densidade} de frangos por M², está bom!`; 
+
+        }else if(densidade <= 13){
+            div_msg.innerHTML = ` <b style="color: yellow;"> A quantidade ${densidade} de frangos por M², necessita de ATENÇÃO! </b>`; 
+
+        } else{
+            div_msg.innerHTML = `<b style="color: red;" > A quantidade ${densidade} de frangos por M², ESTÁ EM SUPERLOTAÇÃO! </b>`; 
+
+        }
+
+    }
+</script>
