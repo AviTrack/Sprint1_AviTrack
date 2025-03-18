@@ -57,12 +57,12 @@
     if(porcentagemMorte < 5){
       var corMortalidade = `green`
       var situacao = `ESPERADO`
-    }else if(porcentagemMorte == 5){
+    }else if(porcentagemMorte >= 5 && <= 10){
       var corMortalidade = `orange`
        var situacao = `ALERTA`
-    }else{
+    }else if(porcentagemMorte > 10){
       var corMortalidade = `red`
-      var situacao = `PREOCUPANTE`
+      var situacao = `CRÍTICO`
     }
 
 
@@ -110,7 +110,8 @@
         Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span>.<br><br>
 
         Situação atual: <span style="color: ${corMortalidade};"><b>${situacao}</b></span> você teve uma baixa de ${totalMortalidade} frangos que respresenta ${porcentagemMorte}% do total de ${qtdFrango} frangos
-        `;
+        <br><br>
+        Situações:<span style="color: red;"> CRÍTICO </span> - acima de 10% de perdas.  <span style="color: orange;">ALERTA</span> - Entre 5% à 10% de perdas.  <span style="color: green;">ACEITAVEL</span> - Abaixo de 5% de perdas.`;
             }
           }
         }
