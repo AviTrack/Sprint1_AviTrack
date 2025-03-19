@@ -27,6 +27,7 @@
     <input type="number" name="" id="input_mortalidadeFrango" placeholder="Exemplo 10" /><br /><br />
 
     <button onclick="calcularDepesas()">Calcular Despesas</button>
+    <br/>
     <div id="div_resultado"></div>
 
   </body>
@@ -56,7 +57,7 @@
 
     if(porcentagemMorte < 5){
       var corMortalidade = `green`
-      var situacao = `ESPERADO`
+      var situacao = `ACEITAVEL`
     }else if(porcentagemMorte >= 5 && porcentagemMorte <= 10){
       var corMortalidade = `orange`
        var situacao = `ALERTA`
@@ -97,7 +98,8 @@
                 var mensagem = `Seu lucro líquido obtido é de:`;
               }
               div_resultado.innerHTML = `
-      A sua produção conta com <span style="color: blue;"><b>${qtdFrango.toFixed(0)}</b></span> cabeças de frango, com cada frango pesando em média ${pesoMedioFrango}Kg. O peso total é de: <span style="color: blue;"><b>${kiloTotal.toFixed(2)}Kg.</b></span><br>
+              <br>
+        A sua produção conta com <span style="color: blue;"><b>${qtdFrango.toFixed(0)}</b></span> cabeças de frango, com cada frango pesando em média ${pesoMedioFrango}Kg. O peso total é de: <span style="color: blue;"><b>${kiloTotal.toFixed(2)}Kg.</b></span><br>
         O faturamento bruto é de: <span style="color: green;"> <b>R$${precoBruto.toFixed(2)}</b></span><br>
         Os custos totais de produção somam: <span style="color: red;"> <b>R$${despesaTotal.toFixed(2)}</b></span><br>
         ${mensagem} <span style="color: ${cor};"><b>R$${lucro.toFixed(2)}</b></span><br><br><br>
@@ -106,12 +108,17 @@
         O que reduz os lucros em: <span style="color: red;"><b>R$${precoBrutoMortalidade.toFixed(2)}</b></span><br>
         Os custos de produção desses frangos foram: <span style="color: red;"><b>R$${despesaTotalMortalidade.toFixed(2)}</b></span><br>
         A perda total registrada é: <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span><br><br>
-        
-        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span>.<br><br>
+  
+        Com as mortalidades você perdeu <span style="color: red;"><b>R$${perdaTotal.toFixed(2)}</b></span>, que equivale a <span style="color: blue;"><b>${porcentagem.toFixed(0)}%</b></span> do valor <span style="color: green;"><b>R$${lucro.toFixed(2)}</b></span><br><br>
 
-        Situação atual: <span style="color: ${corMortalidade};"><b>${situacao}</b></span> você teve uma baixa de ${totalMortalidade} frangos que respresenta ${porcentagemMorte}% do total de ${qtdFrango} frangos
+        Situação atual: <span style="color: ${corMortalidade};"><b>${situacao}</b></span> você teve uma baixa de ${totalMortalidade} frangos que respresenta ${porcentagemMorte.toFixed(2)}% do total de ${qtdFrango} frangos
         <br><br>
-        Situações:<span style="color: red;"><b> CRÍTICO </b></span> - acima de 10% de perdas.<br>  <span style="color: orange;"><b>ALERTA</b></span> - Entre 5% à 10% de perdas. <br><span style="color: green;"><b>ACEITAVEL</b></span> - Abaixo de 5% de perdas.`;
+        Situações:<br>
+        <span style="color: green;"><b>ACEITAVEL</b></span> - Abaixo de 5% de perdas.<br>
+        <span style="color: orange;"><b>ALERTA</b></span> - Entre 5% à 10% de perdas. <br>
+        <span style="color: red;"><b> CRÍTICO </b></span> - Acima de 10% de perdas.<br> 
+        `
+         
             }
           }
         }
