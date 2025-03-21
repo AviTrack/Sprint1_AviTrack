@@ -64,7 +64,7 @@
     // calculando a porcentagem de lucro
     var porcentagem = (perdaTotal / lucro) * 100
     // validação de campos com OR
-    if (qtdFrango == 0 || pesoMedioFrango == 0 || precoMedioFrango == 0 || despesaMedioFrango == 0 || totalMortalidade == 0) {
+    if (qtdFrango <= 0 || pesoMedioFrango <= 0 || precoMedioFrango <= 0 || despesaMedioFrango <= 0 || totalMortalidade <= 0) {
       alert(`Por favor insira valores validos`);
     } else {
       if (lucro == 0) {
